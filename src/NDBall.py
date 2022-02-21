@@ -228,6 +228,8 @@ def compile(file):
                     rem = memory[loca.index(loc[use])]
                 else:
                     if len(torun) > 3:
+                        if torun[3].token != "INT":
+                            exit(f"Expected value to be int\n{thelines[use]}\n" + " " * torun[3].pos + "^")
                         rem = torun[3].value
                         if len(torun) > 4:
                             exit(f"Unexpeted action\n{thelines[use]}\n" + " " * torun[4].pos + "^")
@@ -236,7 +238,7 @@ def compile(file):
                 if movdir != "<" and movdir != ">":
                     exit(f"Expected movement direction < or >\n{thelines[use]}\n" + " " * torun[1].pos + "^")
                 if movdim != "INT":
-                    exit(f"Expected dimension to be int\n{thelines[use]}\n" + " " * torun[1].pos + "^")
+                    exit(f"Expected dimension to be int\n{thelines[use]}\n" + " " * torun[2].pos + "^")
                 if movdir == "<":
                     movdir = -1
                 else:
