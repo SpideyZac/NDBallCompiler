@@ -255,7 +255,7 @@ def compile(file):
                 else:
                     loca.append(loc[use])
                     memory.append(rem)
-            elif torun[0].token == "|":")
+            elif torun[0].token == "|":
                 ball.direction = -ball.direction
                 if len(torun) > 1:
                     exit(f"Unexpeted action\n{thelines[use]}\n" + " " * torun[1].pos + "^")
