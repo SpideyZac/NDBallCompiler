@@ -229,6 +229,8 @@ def compile(file):
                 else:
                     if len(torun) > 3:
                         rem = torun[3].value
+                        if len(torun) > 4:
+                            exit(f"Unexpeted action\n{thelines[use]}\n" + " " * torun[4].pos + "^")
                     else:
                         rem = 0
                 if movdir != "<" and movdir != ">":
@@ -251,9 +253,7 @@ def compile(file):
                 else:
                     loca.append(loc[use])
                     memory.append(rem)
-                if len(torun) > 3:
-                    exit(f"Unexpeted action\n{thelines[use]}\n" + " " * torun[3].pos + "^")
-            elif torun[0].token == "|":
+            elif torun[0].token == "|":")
                 ball.direction = -ball.direction
                 if len(torun) > 1:
                     exit(f"Unexpeted action\n{thelines[use]}\n" + " " * torun[1].pos + "^")
